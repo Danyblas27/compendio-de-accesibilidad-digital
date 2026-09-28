@@ -5,7 +5,7 @@ export default function ClasesEnLinea() {
   return (
     <SubpageTemplate
       title="Clases en línea"
-      description="Ajustes y herramientas para clases virtuales, por ejemplo activar subtítulos en Meet. Categorías por definir."
+      description="Ajustes y herramientas para clases virtuales"
       cards={clasesCards}
     />
   )
