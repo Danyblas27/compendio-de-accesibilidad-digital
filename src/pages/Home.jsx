@@ -62,7 +62,7 @@ export default function Home() {
 
       {/* 4. Recursos: videos curados */}
       <section className="container section" aria-labelledby="h-recursos">
-        <h2 id="h-recursos">Recursos: videos curados</h2>
+        <h2 id="h-recursos">Recursos: videos</h2>
         <ul className="card-grid card-grid-4">
           {videosCurados.map((v) => (
             <li key={v.id}>

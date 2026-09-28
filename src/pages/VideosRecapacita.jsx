@@ -4,8 +4,8 @@ import { videosCards } from '../data/cards.js'
 export default function VideosRecapacita() {
   return (
     <SubpageTemplate
-      title="Videos Recapacita"
-      description="Colección de videos de la serie Recapacita."
+      title="Videos"
+      description="Colección de videos"
       cards={videosCards}
       variant="video"
     />
