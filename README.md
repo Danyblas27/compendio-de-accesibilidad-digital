@@ -1,6 +1,6 @@
-# Compendio A11y (maquetado)
+# Compendio Técnico en Accesibilidad Web
 
-Maquetado con React + Vite. Texto y datos genéricos.
+React + Vite. Texto y datos genéricos.
 
 ## Uso
 
