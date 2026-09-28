@@ -1,6 +1,6 @@
 # Compendio Técnico en Accesibilidad Web
 
-React + Vite. Texto y datos genéricos.
+React + Vite
 
 ## Uso
 
