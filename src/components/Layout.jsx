@@ -13,13 +13,15 @@ export default function Layout() {
   }, [pathname])
 
   return (
-    <>
-      <a className="skip-link" href="#contenido">Saltar al contenido</a>
+    <div className="min-h-screen flex flex-col bg-app text-main">
+      <a className="skip-link" href="#contenido">
+        Saltar al contenido
+      </a>
       <Header />
-      <main id="contenido" tabIndex={-1}>
+      <main id="contenido" tabIndex={-1} className="flex-1 focus:outline-none">
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
