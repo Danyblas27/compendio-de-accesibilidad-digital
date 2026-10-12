@@ -3,9 +3,8 @@ import { sections } from '../data/sections.js'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-surface py-8 mt-auto">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-secondary">
-        <p>© 2026 Compendio A11y. Contenido técnico en accesibilidad web.</p>
+    <footer className="border-t border-border bg-surface py-6 mt-auto">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex justify-center items-center text-sm text-secondary">
         <nav aria-label="Pie de página">
           <ul className="flex flex-wrap gap-4 sm:gap-6 justify-center">
             <li>

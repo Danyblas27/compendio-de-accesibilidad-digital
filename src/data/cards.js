@@ -1,48 +1,33 @@
-// Genera tarjetas de contenido genéricas. Se reemplaza por datos reales más adelante.
-const lorem =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-
-export function makeCards({ count = 25, prefix, kinds, duration = false }) {
-  return Array.from({ length: count }, (_, i) => {
-    const n = String(i + 1).padStart(2, '0')
-    const kind = kinds[i % kinds.length]
-    return {
-      id: `${prefix}-${n}`,
-      title: `Título del contenido ${n}`,
-      description: lorem,
-      kind,
-      meta: duration ? `${5 + (i % 12)} min` : `${3 + (i % 9)} min de lectura`,
-      href: '#',
-    }
-  })
-}
-
 export const materialesFilters = [
   'Word',
   'PowerPoint',
-  'Video',
-  'PDF',
-  'Página web',
-  'EDICO',
 ]
 
-export const materialesCards = makeCards({
-  prefix: 'mat',
-  kinds: materialesFilters,
-})
+export const materialesCards = [
+  {
+    id: 'mat-word-01',
+    title: 'Accesibilidad básica en Word',
+    description: 'Guía y recomendaciones prácticas para crear documentos accesibles y con estructura adecuada en Microsoft Word.',
+    kind: 'Word',
+    meta: 'Documento Word (.docx) · 330 KB',
+    previewUrl: './docs/Accesibilidad%20b%C3%A1sica%20en%20Word.pdf',
+    downloadUrl: './docs/Accesibilidad%20b%C3%A1sica%20en%20Word.docx',
+    downloadName: 'Accesibilidad básica en Word.docx',
+  },
+  {
+    id: 'mat-ppt-01',
+    title: 'Accesibilidad básica en PowerPoint',
+    description: 'Presentación con pautas y directrices de accesibilidad para diseñar diapositivas claras e inclusivas.',
+    kind: 'PowerPoint',
+    meta: 'Presentación PowerPoint (.pptm) · 1.1 MB',
+    previewUrl: './docs/Accesibilidad%20b%C3%A1sica%20en%20PowerPoint.pdf',
+    downloadUrl: './docs/Accesibilidad%20b%C3%A1sica%20en%20PowerPoint.pptm',
+    downloadName: 'Accesibilidad básica en PowerPoint.pptm',
+  },
+]
 
-export const clasesCards = makeCards({
-  prefix: 'cla',
-  kinds: ['Subtítulos', 'Meet', 'Zoom', 'Grabaciones', 'Por clasificar'],
-})
+export const clasesCards = []
 
-export const videosCards = makeCards({
-  prefix: 'vid',
-  kinds: ['Recapacita'],
-  duration: true,
-})
+export const videosCards = []
 
-export const aulaCards = makeCards({
-  prefix: 'aul',
-  kinds: ['Estrategia', 'Apoyo', 'Recurso'],
-})
+export const aulaCards = []

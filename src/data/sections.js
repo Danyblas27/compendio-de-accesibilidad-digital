@@ -13,10 +13,10 @@ export const sections = [
     description: 'Ajustes y herramientas para clases virtuales, por ejemplo subtítulos en Meet.',
   },
   {
-    path: '/videos-recapacita',
-    title: 'Videos Recapacita',
-    short: 'Videos Recapacita',
-    description: 'Colección de videos de la serie Recapacita.',
+    path: '/videos',
+    title: 'Videos',
+    short: 'Videos',
+    description: 'Colección de videos sobre accesibilidad y buenas prácticas.',
   },
   {
     path: '/dentro-del-aula',
