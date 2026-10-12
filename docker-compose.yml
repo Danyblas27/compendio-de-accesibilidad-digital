@@ -1,0 +1,30 @@
+services:
+  # Entorno de Producción (Servido con Nginx en Alpine)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: compendio-app
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:80"
+    # Montaje opcional para añadir/actualizar PDFs, videos o docs sin reconstruir la imagen:
+    # volumes:
+    #   - ./public/docs:/usr/share/nginx/html/docs:ro
+
+  # Entorno de Desarrollo (Vite con Hot Reload)
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: compendio-dev
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
