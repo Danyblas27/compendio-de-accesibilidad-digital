@@ -2,10 +2,17 @@ import { useState } from 'react'
 import PageHero from './PageHero.jsx'
 import CardGrid from './CardGrid.jsx'
 import DocumentViewerModal from './DocumentViewerModal.jsx'
+import VideoViewerModal from './VideoViewerModal.jsx'
 
-// Plantilla común de las subpáginas: encabezado + (filtros opcionales) + cuadrícula de cards + visor de documentos
 export default function SubpageTemplate({ title, description, cards, variant, filters }) {
   const [selectedDoc, setSelectedDoc] = useState(null)
+  const [selectedVideo, setSelectedVideo] = useState(null)
+
+  // Una sola función de apertura: decide el visor según la variante de la página
+  const handlePreview = (card) => {
+    if (variant === 'video') setSelectedVideo(card)
+    else setSelectedDoc(card)
+  }
 
   return (
     <>
@@ -21,7 +28,7 @@ export default function SubpageTemplate({ title, description, cards, variant, fi
           cards={cards}
           variant={variant}
           label={title}
-          onPreview={setSelectedDoc}
+          onPreview={handlePreview}
         />
       </section>
 
@@ -29,6 +36,13 @@ export default function SubpageTemplate({ title, description, cards, variant, fi
         <DocumentViewerModal
           document={selectedDoc}
           onClose={() => setSelectedDoc(null)}
+        />
+      )}
+
+      {selectedVideo && (
+        <VideoViewerModal
+          video={selectedVideo}
+          onClose={() => setSelectedVideo(null)}
         />
       )}
     </>

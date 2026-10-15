@@ -1,17 +1,31 @@
 import { getKindBadgeClasses } from '../utils/kindColors.js'
+import { getThumbnail } from '../utils/youtube.js'
 
 export default function ContentCard({ card, variant = 'default', onPreview }) {
   const hasPreview = Boolean(card.previewUrl && onPreview)
+  const isVideo = variant === 'video' && Boolean(card.webUrl && onPreview)
+  const thumb = isVideo ? getThumbnail(card.webUrl) : null
 
   return (
     <article className="relative bg-surface border border-border rounded-lg shadow-sm hover:border-interactive hover:shadow-md transition-all flex flex-col h-full overflow-hidden group">
       {variant === 'video' && (
         <div
-          className="aspect-video bg-[#E2E8F0] flex items-center justify-center border-b border-border"
+          className="relative aspect-video bg-[#E2E8F0] flex items-center justify-center border-b border-border overflow-hidden"
           aria-hidden="true"
         >
-          <span className="w-12 h-12 rounded-full bg-interactive text-white flex items-center justify-center text-xs font-bold shadow-md group-hover:bg-interactive-hover group-hover:scale-105 transition-all">
-            VIDEO
+          {thumb && (
+            <img
+              src={thumb}
+              alt=""
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover"
+              onError={(e) => { e.currentTarget.style.display = 'none' }}
+            />
+          )}
+          <span className="relative w-12 h-12 rounded-full bg-interactive text-white flex items-center justify-center shadow-md group-hover:bg-interactive-hover group-hover:scale-105 transition-all">
+            <svg className="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
           </span>
         </div>
       )}
@@ -28,7 +42,17 @@ export default function ContentCard({ card, variant = 'default', onPreview }) {
         )}
 
         <h3 className="text-lg font-bold text-main leading-snug group-hover:text-interactive transition-colors">
-          {hasPreview ? (
+          {isVideo ? (
+            // Botón "estirado": el ::after cubre toda la card, así que todo el card es clicable
+            <button
+              type="button"
+              onClick={() => onPreview(card)}
+              aria-label={`Reproducir video: ${card.title}. ${card.meta ?? ''}`}
+              className="text-left cursor-pointer after:absolute after:inset-0 after:rounded-lg focus:outline-none focus-visible:after:ring-2 focus-visible:after:ring-interactive focus-visible:after:ring-inset"
+            >
+              {card.title}
+            </button>
+          ) : hasPreview ? (
             card.title
           ) : (
             <a
