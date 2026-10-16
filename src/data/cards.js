@@ -3,6 +3,13 @@ export const materialesFilters = [
   'PowerPoint',
 ]
 
+export const videosFilters = [
+  'Visual',
+  'Auditiva',
+  'Motriz',
+  'Neurodivergentes',
+]
+
 export const materialesCards = [
   {
     id: 'mat-word-01',
