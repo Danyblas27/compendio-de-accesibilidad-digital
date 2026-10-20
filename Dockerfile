@@ -19,7 +19,6 @@ CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
 # Etapa 3: Compilación para Producción
 # ==========================================
 FROM base AS builder
-ENV NODE_ENV=production
 RUN npm ci
 COPY . .
 RUN npm run build
