@@ -6,8 +6,9 @@ export const materialesFilters = [
 export const videosFilters = [
   'Visual',
   'Auditiva',
-  'Motriz',
-  'Neurodivergentes',
+  'Motora',
+  'Neurodivergencia',
+  'Otros',
 ]
 
 export const materialesCards = [
@@ -40,7 +41,7 @@ export const videosCards = [
     id: 'vid-01',
     title: 'Pon un alto al capacitismo',
     description: 'Video explicativo que presenta una visión general sobre el capacitismo.',
-    kind: 'Todos',
+    kind: 'Otros',
     meta: 'Duración: 2 min',
     webUrl: 'https://youtu.be/a4nqed5f3vU',
   },
@@ -104,7 +105,7 @@ export const videosCards = [
     id: 'vid-09',
     title: 'Haz enlaces perceptibles y comprensibles',
     description: 'Video explicativo que muestra cómo crear enlaces que sean fáciles de identificar y entender.',
-    kind: 'Todos',
+    kind: 'Visual',
     meta: 'Duración: 2 min 14 s',
     webUrl: 'https://youtu.be/0zThf3Th4c0'
   },
@@ -128,7 +129,7 @@ export const videosCards = [
     id: 'vid-12',
     title: 'Por una web más accesible',
     description: 'Video explicativo que presenta las ventajas de una web accesible para todas las personas.',
-    kind: 'Todos',
+    kind: 'Otros',
     meta: 'Duración: 2 min 05 s',
     webUrl: 'https://youtu.be/_5aTep9yjhQ'
   }

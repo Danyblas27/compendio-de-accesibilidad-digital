@@ -8,7 +8,6 @@ export default function SubpageTemplate({ title, description, cards, variant, fi
   const [selectedDoc, setSelectedDoc] = useState(null)
   const [selectedVideo, setSelectedVideo] = useState(null)
 
-  // Una sola función de apertura: decide el visor según la variante de la página
   const handlePreview = (card) => {
     if (variant === 'video') setSelectedVideo(card)
     else setSelectedDoc(card)

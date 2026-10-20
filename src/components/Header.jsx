@@ -15,21 +15,6 @@ export default function Header() {
 
         <nav aria-label="Principal">
           <ul className="flex items-center gap-1 sm:gap-2 flex-wrap">
-            <li>
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) =>
-                  `block px-3 py-1.5 text-sm font-bold rounded-full transition-colors ${
-                    isActive
-                      ? 'bg-focus text-white'
-                      : 'text-secondary hover:text-main hover:bg-interactive-tint'
-                  }`
-                }
-              >
-                Inicio
-              </NavLink>
-            </li>
             {sections.map((s) => (
               <li key={s.path}>
                 <NavLink
