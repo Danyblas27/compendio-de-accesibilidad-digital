@@ -1,18 +1,53 @@
-name: Docker Image CI
+name: Deploy Compendio to GitHub Pages
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-
-  build:
-
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Docker image (Production target)
+        run: |
+          docker build --target production -t compendio-prod .
+
+      - name: Extract static files from Nginx container
+        run: |
+          # 1. Crear contenedor temporal
+          CONTAINER_ID=$(docker create compendio-prod)
+          
+          # 2. Copiar los archivos estáticos que Nginx iba a servir
+          docker cp $CONTAINER_ID:/usr/share/nginx/html ./dist_pages
+          
+          # 3. Limpiar contenedor
+          docker rm $CONTAINER_ID
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist_pages'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
