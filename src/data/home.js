@@ -38,47 +38,4 @@ export const tecnologias = [
     href: 'https://support.microsoft.com/es-es/windows/usar-la-lupa-para-facilitar-la-visualizaci%C3%B3n-de-la-pantalla-414948ba-8b1c-d3bd-8615-0e5e32204198',
     link: 'Guía de uso de Lupa',
   },
-  {
-    title: 'Subtitulado y transcripción',
-    text: 'Generación automática y manual de subtítulos cerrados (CC) en plataformas de videoconferencia y reproductores de video.',
-    href: 'https://support.google.com/meet/answer/9300310?hl=es',
-    link: 'Subtítulos en Google Meet',
-  },
-  {
-    title: 'Control por voz y pulsadores',
-    text: 'Tecnologías de asistencia motriz que permiten operar la computadora mediante comandos vocales o interruptores adaptados.',
-    href: 'https://www.w3.org/WAI/people-use-web/tools-techniques/es',
-    link: 'Herramientas W3C WAI',
-  },
-]
-
-export const videosCurados = [
-  {
-    id: 1,
-    title: 'Introducción a la Accesibilidad Web (WAI)',
-    text: 'Fundamentos de diseño universal y su impacto en la educación y la tecnología.',
-    duration: '8 min',
-    href: '#',
-  },
-  {
-    id: 2,
-    title: 'Navegación asistida con teclado y lector',
-    text: 'Demostración práctica de cómo una persona ciega navega por la web.',
-    duration: '12 min',
-    href: '#',
-  },
-  {
-    id: 3,
-    title: 'Cómo crear documentos accesibles en Word',
-    text: 'Estructuración correcta con encabezados, listas y texto alternativo.',
-    duration: '15 min',
-    href: '#',
-  },
-  {
-    id: 4,
-    title: 'Subtitulado accesible en clases virtuales',
-    text: 'Buenas prácticas para sincronización, ortografía y contraste de subtítulos.',
-    duration: '10 min',
-    href: '#',
-  },
 ]

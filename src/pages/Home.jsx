@@ -58,18 +58,27 @@ export default function Home() {
         </h2>
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 list-none p-0">
           {tecnologias.map((t) => (
-            <li
-              key={t.title}
-              className="bg-surface border border-border rounded-lg p-6 shadow-sm hover:border-interactive hover:shadow-md transition-all flex flex-col"
+          <li
+            key={t.title}
+            className="bg-surface border border-border rounded-lg p-6 shadow-sm hover:border-interactive hover:shadow-md transition-all flex flex-col"
+          >
+            <h3 className="text-lg font-bold text-main mb-2">
+              {t.title}
+            </h3>
+            <p className="text-sm text-secondary leading-relaxed">
+              {t.text}
+            </p>
+            <a
+              href={t.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-auto pt-4 text-sm font-bold text-interactive hover:text-interactive-dark underline underline-offset-4"
             >
-              <h3 className="text-lg font-bold text-main mb-2">
-                {t.title}
-              </h3>
-              <p className="text-sm text-secondary leading-relaxed">
-                {t.text}
-              </p>
-            </li>
-          ))}
+            {t.link}
+            <span className="sr-only"> (se abre en una pestaña nueva)</span>
+            </a>
+          </li>
+      ))}
         </ul>
       </section>
     </>
